@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>Are you sure you want to delete TODO task:
+            <strong th:text="${todo.title}"></strong>?
+        </h3>
+        <form th:action="@{/todo/delete/{id}(id=${todo.id})}" method="POST">
+            <button type="submit">Yes, delete</button>
+            <a th:href="@{/todo}">No, go back</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h1>Edit Todo</h1>
+        <form action="#"  th:action="@{/todo/update/{id}(id=${todo.id})}" th:object="${todo}"  method="post">
+            <label>Title:</label>
+            <input type="text" th:field="*{title}" />
+            <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+            <br/>
+            <br/>
+            <label>Description: </label>
+            <input type="text" th:field="*{description}" />
+            <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>
+            <br/>
+            <br/>
+            <input type="submit" value="Update Todo">
+        </form>
+    </div>
+</div>
+</body>
+</html>
